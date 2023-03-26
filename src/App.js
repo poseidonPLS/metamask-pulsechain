@@ -73,7 +73,7 @@ function App() {
           <button onClick={connectMetaMask}>Set up PulseChain in MetaMask</button>
         </div>
         <div className="button-row">
-          <button onClick={() => addCustomToken('0x3b34fff74497ca21771ce9a0c11cb07490686a58', 'PulseX', 18)}>Add PulseX Token</button>
+          <button onClick={() => addCustomToken('0x3b34fff74497ca21771ce9a0c11cb07490686a58', 'PLSX', 18)}>Add PulseX Token</button>
         </div>
         <div className="button-row">
           <button onClick={() => addCustomToken('0x2b591e99afe9f32eaa6214f7b7629768c40eeb39', 'HEX', 8)}>Add HEX Token</button>

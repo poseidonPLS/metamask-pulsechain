@@ -1,23 +1,89 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import detectEthereumProvider from '@metamask/detect-provider';
 import './App.css';
+import logo from './logo.png'; // Import the logo image
 
 function App() {
+  const [account, setAccount] = useState('');
+
+  const connectMetaMask = async () => {
+    const provider = await detectEthereumProvider();
+
+    if (provider) {
+      try {
+        // Request account access
+        const accounts = await provider.request({ method: 'eth_requestAccounts' });
+        setAccount(accounts[0]);
+
+        // Add PulseChain Testnet V3 configuration
+        const network = {
+          chainId: '0x3ae', // Chain ID: 942
+          chainName: 'PulseChain Testnet V3',
+          nativeCurrency: {
+            name: 'tPLS',
+            symbol: 'tPLS',
+            decimals: 18,
+          },
+          rpcUrls: ['https://rpc.v3.testnet.pulsechain.com'], // New RPC URL
+          blockExplorerUrls: ['https://scan.v3.testnet.pulsechain.com'], // Block Explorer URL
+        };
+
+        // Request to add the PulseChain Testnet V3 to MetaMask
+        await provider.request({ method: 'wallet_addEthereumChain', params: [network] });
+
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      console.log('Please install MetaMask!');
+    }
+  };
+
+  const addCustomToken = async (tokenAddress, tokenSymbol, tokenDecimals) => {
+    const provider = await detectEthereumProvider();
+
+    if (provider) {
+      try {
+        // Request to add the custom token to MetaMask
+        await provider.request({
+          method: 'wallet_watchAsset',
+          params: {
+            type: 'ERC20',
+            options: {
+              address: tokenAddress,
+              symbol: tokenSymbol,
+              decimals: tokenDecimals,
+            },
+          },
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      console.log('Please install MetaMask!');
+    }
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img src={logo} alt="Logo" className="logo" /> {/* Add the logo */}
+        <h1>MetaMask - PulseChain Testnet V3</h1>
+        <div className="button-row">
+          <button onClick={connectMetaMask}>Set up PulseChain in MetaMask</button>
+        </div>
+        <div className="button-row">
+          <button onClick={() => addCustomToken('0x3b34fff74497ca21771ce9a0c11cb07490686a58', 'PulseX', 18)}>Add PulseX Token</button>
+        </div>
+        <div className="button-row">
+          <button onClick={() => addCustomToken('0x2b591e99afe9f32eaa6214f7b7629768c40eeb39', 'HEX', 8)}>Add HEX Token</button>
+        </div>
+        {account ? <p>Connected Account: {account}</p> : <p>Not connected</p>}
       </header>
+      <footer className="App-footer">
+        <p>Site made by Poseidon</p>
+        <a href="https://twitter.com/TheDonSGPulseX" target="_blank" rel="noopener noreferrer">@TheDonSGPulseX</a>
+      </footer>
     </div>
   );
 }

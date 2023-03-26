@@ -17,8 +17,9 @@
   width: 120px;
   height: auto;
   margin-bottom: 1rem;
-  justify-content: center;
-  align-items: center;
+  display: block; /* Add this line */
+  margin-left: auto; /* Add this line */
+  margin-right: auto; /* Add this line */
 }
 
 .button-row {

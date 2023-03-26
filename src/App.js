@@ -15,21 +15,26 @@ function App() {
         const accounts = await provider.request({ method: 'eth_requestAccounts' });
         setAccount(accounts[0]);
 
-        // Add PulseChain Testnet V3 configuration
-        const network = {
-          chainId: '0x3ae', // Chain ID: 942
-          chainName: 'PulseChain Testnet V3',
-          nativeCurrency: {
-            name: 'tPLS',
-            symbol: 'tPLS',
-            decimals: 18,
-          },
-          rpcUrls: ['https://rpc.v3.testnet.pulsechain.com'], // New RPC URL
-          blockExplorerUrls: ['https://scan.v3.testnet.pulsechain.com'], // Block Explorer URL
-        };
+        const currentChainId = await provider.request({ method: 'eth_chainId' });
+        const pulseChainTestnetV3ChainId = '0x3ae'; // Chain ID: 942
 
-        // Request to add the PulseChain Testnet V3 to MetaMask
-        await provider.request({ method: 'wallet_addEthereumChain', params: [network] });
+        if (currentChainId !== pulseChainTestnetV3ChainId) {
+          // Add PulseChain Testnet V3 configuration
+          const network = {
+            chainId: pulseChainTestnetV3ChainId,
+            chainName: 'PulseChain Testnet V3',
+            nativeCurrency: {
+              name: 'tPLS',
+              symbol: 'tPLS',
+              decimals: 18,
+            },
+            rpcUrls: ['https://rpc.v3.testnet.pulsechain.com'], // New RPC URL
+            blockExplorerUrls: ['https://scan.v3.testnet.pulsechain.com'], // Block Explorer URL
+          };
+
+          // Request to add the PulseChain Testnet V3 to MetaMask
+          await provider.request({ method: 'wallet_addEthereumChain', params: [network] });
+        }
 
       } catch (error) {
         console.error(error);
@@ -43,21 +48,28 @@ function App() {
     const provider = await detectEthereumProvider();
 
     if (provider) {
-      try {
-        // Request to add the custom token to MetaMask
-        await provider.request({
-          method: 'wallet_watchAsset',
-          params: {
-            type: 'ERC20',
-            options: {
-              address: tokenAddress,
-              symbol: tokenSymbol,
-              decimals: tokenDecimals,
+      const currentChainId = await provider.request({ method: 'eth_chainId' });
+      const pulseChainTestnetV3ChainId = '0x3ae'; // Chain ID: 942
+
+      if (currentChainId === pulseChainTestnetV3ChainId) {
+        try {
+          // Request to add the custom token to MetaMask
+          await provider.request({
+            method: 'wallet_watchAsset',
+            params: {
+              type: 'ERC20',
+              options: {
+                address: tokenAddress,
+                symbol: tokenSymbol,
+                decimals: tokenDecimals,
+              },
             },
-          },
-        });
-      } catch (error) {
-        console.error(error);
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      } else {
+        console.error('Please switch to the PulseChain Testnet V3 before adding tokens.');
       }
     } else {
       console.log('Please install MetaMask!');

@@ -47,30 +47,27 @@ function App() {
     }
   };
 
-  const searchTokens = async (symbol) => {
-    const query = `
-      {
-        tokens (where: {symbol_contains_nocase: "${symbol}"}) {
-          id,
-          symbol,
-          decimals
-        }
-      }
-    `;
+  const searchTokens = async () => {
+    if (!searchInput.trim()) {
+      alert("Please enter a symbol to search");
+      return;
+    }
   
     try {
-      const response = await fetch('https://graph.v3.testnet.pulsechain.com/subgraphs/name/pulsechain/pulsex', {
-        method: 'POST',
+      const response = await fetch("https://graph.v3.testnet.pulsechain.com/subgraphs/name/pulsechain/pulsex", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ query }),
+        body: JSON.stringify({
+          query: `{tokens (where: {symbol_contains_nocase: "${searchInput.trim()}"}) {id,symbol,decimals}}`,
+        }),
       });
   
-      const data = await response.json();
-      setSearchResults(data.data.tokens);
+      const { data } = await response.json();
+      setSearchResults(data.tokens);
     } catch (error) {
-      console.error('Error fetching token data:', error);
+      console.error("Error searching tokens:", error);
     }
   };
 
@@ -115,8 +112,9 @@ function App() {
           <button onClick={connectMetaMask}>Set up PulseChain in MetaMask</button>
         </div>
         <div className="grid-container">
-      <button onClick={() => addCustom('0x3b34fff74497ca21771ce9a0c11cb07490686a58', 'PLSX', 18)}>Add PLSX </button>
       <button onClick={() => addCustom('0x2b591e99afe9f32eaa6214f7b7629768c40eeb39', 'HEX', 8)}>Add HEX </button>
+      <button onClick={() => addCustom('0x3b34fff74497ca21771ce9a0c11cb07490686a58', 'PLSX', 18)}>Add PLSX </button>
+      <button onClick={() => addCustom('0x8a810ea8B121d08342E9e7696f4a9915cBE494B7', 'INC', 18)}>Add INC </button>
       <button onClick={() => addCustom('0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', 'USDC', 6)}>Add USDC </button>
       <button onClick={() => addCustom('0x6b175474e89094c44da98b954eedeac495271d0f', 'DAI', 18)}>Add DAI </button>
       <button onClick={() => addCustom('0xdac17f958d2ee523a2206206994597c13d831ec7', 'USDT', 6)}>Add USDT </button>

@@ -146,16 +146,27 @@ function App() {
   </div>
 ))}
 </div>
-
-
         {account ? <p>Connected Account: {account}</p> : <p>Not connected</p>}
       </header>
+      
       <footer className="App-footer">
         <p>Site made by Poseidon</p>
         <a href="https://twitter.com/TheDonSGPulseX" target="_blank" rel="noopener noreferrer">@TheDonSGPulseX</a>
+       <div className="disclaimer">
+    <p>
+      Disclaimer: The information provided by this application is for general informational purposes only.
+      While we strive to keep the information up-to-date and correct, we make no representations or
+      warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability,
+      or availability with respect to the information, products, or services provided. Users are encouraged
+      to do their own research and verify the information before acting on it. Any reliance you place on such
+      information is strictly at your own risk.
+    </p>
+  </div>
       </footer>
     </div>
+  
   );
+  
 }
 
 export default App;

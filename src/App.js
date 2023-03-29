@@ -47,6 +47,12 @@ function App() {
     }
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      searchTokens();
+    }
+  };
+
   const searchTokens = async () => {
     if (!searchInput.trim()) {
       alert("Please enter a symbol to search");
@@ -124,21 +130,23 @@ function App() {
   type="text"
   placeholder="Search for other tokens"
   onChange={(e) => setSearchInput(e.target.value)}
+  onKeyPress={handleKeyPress} // Add the onKeyPress event handler here
   style={{ fontSize: '1rem', padding: '0.5rem', width: '60%', marginRight: '1rem' }}
 />
-      <button onClick={() => searchTokens(searchInput)}>Search</button>
-    </div>
-    <div className="search-results grid-container">
-  {searchResults.map((token) => (
-    <div key={token.id} className="token">
-      <h4>{token.symbol}</h4>
-      <p className="contract-address">{token.id}</p>
-      <button onClick={() => addCustom(token.id, token.symbol, token.decimals)}>
-        Add {token.symbol} Token
-      </button>
-    </div>
-  ))}
+<button onClick={() => searchTokens(searchInput)}>Search</button>
 </div>
+<div className="search-results grid-container">
+{searchResults.map((token) => (
+  <div key={token.id} className="token">
+    <h4>{token.symbol}</h4>
+    <p className="contract-address">{token.id}</p>
+    <button onClick={() => addCustom(token.id, token.symbol, token.decimals)}>
+      Add {token.symbol} Token
+    </button>
+  </div>
+))}
+</div>
+
 
         {account ? <p>Connected Account: {account}</p> : <p>Not connected</p>}
       </header>

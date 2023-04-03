@@ -28,6 +28,12 @@
   gap: 0.5rem;
 }
 
+.navigation-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
 .search-results {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

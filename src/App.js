@@ -123,7 +123,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} alt="Logo" className="logo" /> {/* Add the logo */}
-        <h1>MetaMask - PulseChain Testnet V3</h1>
+        <h1>PulseChain Testnet V3</h1>
         <div className="button-row">
           <button onClick={connectMetaMask}>
             Set up PulseChain in MetaMask

@@ -126,3 +126,16 @@ h4 {
 a:hover {
   color: #aeeeff;
 }
+
+@media (max-width: 767px) {
+  .navigation-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navigation-buttons button {
+    margin: 0.25rem auto;
+    width: 80%;
+  }
+}

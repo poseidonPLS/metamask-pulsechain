@@ -227,13 +227,6 @@ function App() {
           >
             Add DAI{" "}
           </button>
-          <button
-            onClick={() =>
-              addCustom("0xdac17f958d2ee523a2206206994597c13d831ec7", "USDT", 6)
-            }
-          >
-            Add USDT{" "}
-          </button>
                     <button
             onClick={() =>
               addCustom("0xAa1F1f73b833FD63b591f56fa83B3f8A7C343224", "tDai", 18)

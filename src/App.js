@@ -234,6 +234,13 @@ function App() {
           >
             Add USDT{" "}
           </button>
+                    <button
+            onClick={() =>
+              addCustom("0xAa1F1f73b833FD63b591f56fa83B3f8A7C343224", "tDai", 18)
+            }
+          >
+            Add tDai (Bridged){" "}
+            </button>
         </div>
         <div className="button-row">
           <input

@@ -177,10 +177,10 @@ function App() {
               To Block Explorer
             </button>
             <button
-              onClick={() => window.open("https://pulseramp.com/#/", "_blank")}
-              disabled
+              onClick={() => window.open("https://pulseramp.com/#/", "_blank")
+            }
             >
-              To Bridge (disabled)
+              To Bridge
             </button>
           </div>
         </div>

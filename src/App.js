@@ -141,6 +141,13 @@ function App() {
             </button>
             <button
               onClick={() =>
+                window.open("https://scan.v3.testnet.pulsechain.com/", "_blank")
+              }
+            >
+              To Block Explorer
+            </button>
+            <button
+              onClick={() =>
                 window.open(
                   "https://beacon.v3.testnet.pulsechain.com/",
                   "_blank"
@@ -170,17 +177,20 @@ function App() {
               To Validator
             </button>
             <button
-              onClick={() =>
-                window.open("https://scan.v3.testnet.pulsechain.com/", "_blank")
-              }
-            >
-              To Block Explorer
-            </button>
-            <button
               onClick={() => window.open("https://pulseramp.com/#/", "_blank")
             }
             >
               To Bridge
+            </button>
+            <button
+              onClick={() =>
+                window.open(
+                  "https://https://pulsechain-sacrifice-checker.vercel.app/",
+                  "_blank"
+                )
+              }
+            >
+              To Sacrifice Checker
             </button>
           </div>
         </div>

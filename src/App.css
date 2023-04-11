@@ -44,6 +44,7 @@
 
 .token {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 1rem;
@@ -121,11 +122,21 @@ h4 {
   margin: 0;
   color: rgb(227, 227, 227);
   margin-bottom: 0.5rem;
+  word-wrap: break-word;
 }
-
 
 a:hover {
   color: #aeeeff;
+}
+
+.token h4,
+.token p,
+.token button {
+  margin-bottom: 0.5rem;
+}
+
+.token button {
+  width: 100%;
 }
 
 @media (max-width: 767px) {

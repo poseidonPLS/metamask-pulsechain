@@ -192,7 +192,7 @@ function App() {
             <button
               onClick={() =>
                 window.open(
-                  "https://https://pulsechain-sacrifice-checker.vercel.app/",
+                  "https://pulsechain-sacrifice-checker.vercel.app/",
                   "_blank"
                 )
               }

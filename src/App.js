@@ -133,6 +133,9 @@ function App() {
           <button onClick={connectMetaMask}>
             Set up PulseChain in MetaMask
           </button>
+          <p style={{ marginTop: "1rem", fontSize: "0.9rem" }}> {/* Add this line */}
+    If you're on a mobile device, please use the MetaMask app's browser to access this site.
+  </p> {/* Add this line */}
         </div>
         <div className="navigation-section">
           <h3 className="navigation-heading">Quick Links</h3>

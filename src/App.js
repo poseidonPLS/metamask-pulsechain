@@ -7,6 +7,7 @@ function App() {
   const [account, setAccount] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // Add this line
 
   const connectMetaMask = async () => {
     const provider = await detectEthereumProvider();
@@ -54,13 +55,14 @@ function App() {
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
-      searchTokens();
+      searchTokens(searchInput);
     }
   };
 
-  const searchTokens = async () => {
-    if (!searchInput.trim()) {
-      alert("Please enter a symbol to search");
+  const searchTokens = async (query) => {
+    if (query.trim() === "") {
+      setSearchResults([]);
+      setErrorMessage("Please enter a symbol to search.");
       return;
     }
 
@@ -73,15 +75,18 @@ function App() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            query: `{tokens (where: {symbol_contains_nocase: "${searchInput.trim()}"}) {id,symbol,decimals}}`,
+            query: `{tokens (where: {symbol_contains_nocase: "${query}"}) {id, name, symbol, decimals}}`,
           }),
         }
       );
 
-      const { data } = await response.json();
-      setSearchResults(data.tokens);
+      const data = await response.json();
+      setSearchResults(data.data.tokens);
+      setErrorMessage("");
     } catch (error) {
-      console.error("Error searching tokens:", error);
+      console.error(error);
+      setSearchResults([]);
+      setErrorMessage("An error occurred while searching for tokens.");
     }
   };
 
@@ -177,8 +182,7 @@ function App() {
               To Validator
             </button>
             <button
-              onClick={() => window.open("https://pulseramp.com/#/", "_blank")
-            }
+              onClick={() => window.open("https://pulseramp.com/#/", "_blank")}
             >
               To Bridge
             </button>
@@ -237,13 +241,17 @@ function App() {
           >
             Add DAI{" "}
           </button>
-                    <button
+          <button
             onClick={() =>
-              addCustom("0xAa1F1f73b833FD63b591f56fa83B3f8A7C343224", "tDai", 18)
+              addCustom(
+                "0xAa1F1f73b833FD63b591f56fa83B3f8A7C343224",
+                "tDai",
+                18
+              )
             }
           >
             Add tDai (Bridged){" "}
-            </button>
+          </button>
         </div>
         <div className="button-row">
           <input
@@ -260,17 +268,26 @@ function App() {
           />
           <button onClick={() => searchTokens(searchInput)}>Search</button>
         </div>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}{" "}
+        {/* Add this line to display the error message */}
         <div className="search-results grid-container">
           {searchResults.map((token) => (
             <div key={token.id} className="token">
-              <h4>{token.symbol}</h4>
+              <h4>
+                {token.name} ({token.symbol}
+                {token.name.includes("on PulseChain") ? "-bridged" : ""}){" "}
+                {/* Update this line */}
+              </h4>
               <p className="contract-address">{token.id}</p>
               <button
                 onClick={() =>
                   addCustom(token.id, token.symbol, token.decimals)
                 }
               >
-                Add {token.symbol} Token
+                Add {token.symbol}
+                {token.name.includes("on PulseChain")
+                  ? "-bridged"
+                  : ""} Token {/* Update this line */}
               </button>
             </div>
           ))}

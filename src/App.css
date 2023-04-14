@@ -23,6 +23,14 @@
   margin-right: auto; /* Add this line */
 }
 
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

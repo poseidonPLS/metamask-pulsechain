@@ -2,6 +2,9 @@ import { useState } from "react";
 import detectEthereumProvider from "@metamask/detect-provider";
 import "./App.css";
 import logo from "./logo.png"; // Import the logo image
+import logoPulseX from "./logoPulseX.png"; // Import the PulseX logo image
+import logoHEX from "./logoHEX.png"; // Import the HEX logo image
+
 
 function App() {
   const [account, setAccount] = useState("");
@@ -126,9 +129,19 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="Logo" className="logo" /> {/* Add the logo */}
-        <h1>PulseChain Testnet V3</h1>
+<header className="App-header">
+  <div className="logo-container">
+    <a href="https://hex.com" target="_blank" rel="noopener noreferrer">
+      <img src={logoHEX} alt="HEX Logo" className="logo" />
+    </a>
+    <a href="https://pulsechain.com" target="_blank" rel="noopener noreferrer">
+      <img src={logo} alt="PulseChain Logo" className="logo" />
+    </a>
+    <a href="https://pulsex.com" target="_blank" rel="noopener noreferrer">
+      <img src={logoPulseX} alt="PulseX Logo" className="logo" />
+    </a>
+  </div>
+  <h1>PulseChain Testnet V3</h1>
         <div className="button-row">
           <button onClick={connectMetaMask}>
             Set up PulseChain in MetaMask

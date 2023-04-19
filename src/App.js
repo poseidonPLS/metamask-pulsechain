@@ -190,7 +190,7 @@ function App() {
             <button
               onClick={() =>
                 window.open(
-                  "http://launchpad.v4.testnet.pulsechain.com/en/",
+                  "https://launchpad.v4.testnet.pulsechain.com/en/",
                   "_blank"
                 )
               }

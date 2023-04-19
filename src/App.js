@@ -26,23 +26,23 @@ function App() {
         const currentChainId = await provider.request({
           method: "eth_chainId",
         });
-        const pulseChainTestnetV3ChainId = "0x3ae"; // Chain ID: 942
+        const pulseChainTestnetv4ChainId = "0x3af"; // Chain ID: 943
 
-        if (currentChainId !== pulseChainTestnetV3ChainId) {
-          // Add PulseChain Testnet V3 configuration
+        if (currentChainId !== pulseChainTestnetv4ChainId) {
+          // Add PulseChain Testnet V4 configuration
           const network = {
-            chainId: pulseChainTestnetV3ChainId,
-            chainName: "PulseChain Testnet V3",
+            chainId: pulseChainTestnetv4ChainId,
+            chainName: "PulseChain Testnet V4",
             nativeCurrency: {
               name: "tPLS",
               symbol: "tPLS",
               decimals: 18,
             },
-            rpcUrls: ["https://rpc.v3.testnet.pulsechain.com"], // New RPC URL
-            blockExplorerUrls: ["https://scan.v3.testnet.pulsechain.com"], // Block Explorer URL
+            rpcUrls: ["https://rpc.v4.testnet.pulsechain.com"], // New RPC URL
+            blockExplorerUrls: ["https://scan.v4.testnet.pulsechain.com"], // Block Explorer URL
           };
 
-          // Request to add the PulseChain Testnet V3 to MetaMask
+          // Request to add the PulseChain Testnet V4 to MetaMask
           await provider.request({
             method: "wallet_addEthereumChain",
             params: [network],
@@ -71,7 +71,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "https://graph.v3.testnet.pulsechain.com/subgraphs/name/pulsechain/pulsex",
+        "https://graph.v4.testnet.pulsechain.com/subgraphs/name/pulsechain/pulsex",
         {
           method: "POST",
           headers: {
@@ -98,9 +98,9 @@ function App() {
 
     if (provider) {
       const currentChainId = await provider.request({ method: "eth_chainId" });
-      const pulseChainTestnetV3ChainId = "0x3ae"; // Chain ID: 942
+      const pulseChainTestnetv4ChainId = "0x3af"; // Chain ID: 943
 
-      if (currentChainId === pulseChainTestnetV3ChainId) {
+      if (currentChainId === pulseChainTestnetv4ChainId) {
         try {
           // Request to add the custom  to MetaMask
           await provider.request({
@@ -119,7 +119,7 @@ function App() {
         }
       } else {
         console.error(
-          "Please switch to the PulseChain Testnet V3 before adding s."
+          "Please switch to the PulseChain Testnet v4 before adding s."
         );
       }
     } else {
@@ -141,7 +141,7 @@ function App() {
       <img src={logoPulseX} alt="PulseX Logo" className="logo" />
     </a>
   </div>
-  <h1>PulseChain Testnet V3</h1>
+  <h1>PulseChain Testnet v4</h1>
         <div className="button-row">
           <button onClick={connectMetaMask}>
             Set up PulseChain in MetaMask
@@ -155,14 +155,14 @@ function App() {
           <div className="navigation-buttons">
             <button
               onClick={() =>
-                window.open("https://app.v3.testnet.pulsex.com/swap", "_blank")
+                window.open("https://app.v4.testnet.pulsex.com/swap", "_blank")
               }
             >
               To PulseX
             </button>
             <button
               onClick={() =>
-                window.open("https://scan.v3.testnet.pulsechain.com/", "_blank")
+                window.open("https://scan.v4.testnet.pulsechain.com/", "_blank")
               }
             >
               To Block Explorer
@@ -170,7 +170,7 @@ function App() {
             <button
               onClick={() =>
                 window.open(
-                  "https://beacon.v3.testnet.pulsechain.com/",
+                  "https://beacon.v4.testnet.pulsechain.com/",
                   "_blank"
                 )
               }
@@ -180,7 +180,7 @@ function App() {
             <button
               onClick={() =>
                 window.open(
-                  "https://faucet.v3.testnet.pulsechain.com/",
+                  "https://faucet.v4.testnet.pulsechain.com/",
                   "_blank"
                 )
               }
@@ -190,7 +190,7 @@ function App() {
             <button
               onClick={() =>
                 window.open(
-                  "https://launchpad.v3.testnet.pulsechain.com/en/",
+                  "https://launchpad.v4.testnet.pulsechain.com/en/",
                   "_blank"
                 )
               }
@@ -233,12 +233,12 @@ function App() {
                 18
               )
             }
-          >
+            >
             Add PLSX{" "}
           </button>
           <button
             onClick={() =>
-              addCustom("0x8a810ea8B121d08342E9e7696f4a9915cBE494B7", "INC", 18)
+              addCustom("0x8a810ea8b121d08342e9e7696f4a9915cbe494b7", "INC", 18)
             }
           >
             Add INC{" "}
@@ -253,8 +253,8 @@ function App() {
           <button
             onClick={() =>
               addCustom("0x6b175474e89094c44da98b954eedeac495271d0f", "DAI", 18)
-            }
-          >
+            } 
+            >
             Add DAI{" "}
           </button>
           <button
@@ -265,8 +265,8 @@ function App() {
                 18
               )
             }
-          >
-            Add tDai (Bridged){" "}
+            disabled>
+            Add tDai (disabled){" "}
           </button>
         </div>
         <div className="button-row">

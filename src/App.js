@@ -228,7 +228,7 @@ function App() {
           <button
             onClick={() =>
               addCustom(
-                "0x3b34fff74497ca21771ce9a0c11cb07490686a58",
+                "0x8a810ea8b121d08342e9e7696f4a9915cbe494b7",
                 "PLSX",
                 18
               )
@@ -240,8 +240,8 @@ function App() {
             onClick={() =>
               addCustom("0x8a810ea8b121d08342e9e7696f4a9915cbe494b7", "INC", 18)
             }
-          >
-            Add INC{" "}
+          disabled>
+            Add INC(disabled){" "}
           </button>
           <button
             onClick={() =>

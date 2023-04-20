@@ -323,7 +323,7 @@ function App() {
         <div className="disclaimer">
           <p>
             Disclaimer: The information provided by this application is for
-            general informational purposes only. While we strive to keep the
+            informational purposes only. While we strive to keep the
             information up-to-date and correct, we make no representations or
             warranties of any kind, express or implied, about the completeness,
             accuracy, reliability, suitability, or availability with respect to

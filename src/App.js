@@ -238,10 +238,10 @@ function App() {
           </button>
           <button
             onClick={() =>
-              addCustom("0x8a810ea8b121d08342e9e7696f4a9915cbe494b7", "INC", 18)
+              addCustom("0x6efafcb715f385c71d8af763e8478feea6fadf63", "INC", 18)
             }
-          disabled>
-            Add INC(disabled){" "}
+          >
+            Add INC{" "}
           </button>
           <button
             onClick={() =>

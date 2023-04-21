@@ -231,6 +231,9 @@ function App() {
         <div className="add-token-section">
           <h3 className="add-token-title">Add Tokens</h3>
         </div>
+        <p style={{ marginTop: "0.5rem", marginBottom: "0.2rem", fontSize: "0.9rem" }}>
+              If the buttons doesn't work, check that you are on PulseChain Testnet.
+          </p>
         <div className="grid-container">
           <button
             onClick={() =>

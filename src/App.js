@@ -5,7 +5,6 @@ import logo from "./logo.png"; // Import the logo image
 import logoPulseX from "./logoPulseX.png"; // Import the PulseX logo image
 import logoHEX from "./logoHEX.png"; // Import the HEX logo image
 
-
 function App() {
   const [account, setAccount] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -102,7 +101,7 @@ function App() {
 
       if (currentChainId === pulseChainTestnetv4ChainId) {
         try {
-          // Request to add the custom  to MetaMask
+          // Request to add the custom to MetaMask
           await provider.request({
             method: "wallet_watchAsset",
             params: {
@@ -119,7 +118,7 @@ function App() {
         }
       } else {
         console.error(
-          "Please switch to the PulseChain Testnet v4 before adding s."
+          "Please switch to the PulseChain Testnet v4 before adding."
         );
       }
     } else {
@@ -129,26 +128,40 @@ function App() {
 
   return (
     <div className="App">
-<header className="App-header">
-  <div className="logo-container">
-    <a href="https://hex.com" target="_blank" rel="noopener noreferrer">
-      <img src={logoHEX} alt="HEX Logo" className="logo" />
-    </a>
-    <a href="https://pulsechain.com" target="_blank" rel="noopener noreferrer">
-      <img src={logo} alt="PulseChain Logo" className="logo" />
-    </a>
-    <a href="https://pulsex.com" target="_blank" rel="noopener noreferrer">
-      <img src={logoPulseX} alt="PulseX Logo" className="logo" />
-    </a>
-  </div>
-  <h1>PulseChain Testnet v4</h1>
+      <header className="App-header">
+        <div className="logo-container">
+          <a href="https://hex.com" target="_blank" rel="noopener noreferrer">
+            <img src={logoHEX} alt="HEX Logo" className="logo" />
+          </a>
+          <a
+            href="https://pulsechain.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={logo} alt="PulseChain Logo" className="logo" />
+          </a>
+          <a
+            href="https://pulsex.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={logoPulseX} alt="PulseX Logo" className="logo" />
+          </a>
+        </div>
+        <h1>PulseChain Testnet v4</h1>
         <div className="button-row">
-          <button onClick={connectMetaMask}>
-            Set up PulseChain in MetaMask
-          </button>
-          <p style={{ marginTop: "1rem", fontSize: "0.9rem" }}> {/* Add this line */}
-    If you're on a mobile device, please use the MetaMask app's browser to access this site.
-  </p> {/* Add this line */}
+          <button onClick={connectMetaMask}>Set up PulseChain V4</button>
+          <p style={{ marginTop: "0.5rem", marginBottom: "0.2rem", fontSize: "0.9rem" }}>
+            {" "}
+            If you're on a mobile device, please use the mobile app's browser to
+            access this site.
+            <br></br>
+             Tested working with mobile/browser Metamask,
+            mobile/browser Trust wallet and mobile Coinbase Wallet.
+          </p>
+          <p style={{ fontSize: "0.8rem" }}>
+            * Your mobile app need to support custom RPC. 
+          </p>
         </div>
         <div className="navigation-section">
           <h3 className="navigation-heading">Quick Links</h3>
@@ -199,8 +212,9 @@ function App() {
             </button>
             <button
               onClick={() => window.open("https://pulseramp.com/#/", "_blank")}
+              disabled
             >
-              To Bridge
+              To Bridge (disabled)
             </button>
             <button
               onClick={() =>
@@ -233,7 +247,7 @@ function App() {
                 18
               )
             }
-            >
+          >
             Add PLSX{" "}
           </button>
           <button
@@ -253,8 +267,8 @@ function App() {
           <button
             onClick={() =>
               addCustom("0x6b175474e89094c44da98b954eedeac495271d0f", "DAI", 18)
-            } 
-            >
+            }
+          >
             Add DAI{" "}
           </button>
           <button
@@ -265,7 +279,8 @@ function App() {
                 18
               )
             }
-            disabled>
+            disabled
+          >
             Add tDai (disabled){" "}
           </button>
         </div>
@@ -323,14 +338,14 @@ function App() {
         <div className="disclaimer">
           <p>
             Disclaimer: The information provided by this application is for
-            informational purposes only. While we strive to keep the
-            information up-to-date and correct, we make no representations or
-            warranties of any kind, express or implied, about the completeness,
-            accuracy, reliability, suitability, or availability with respect to
-            the information, products, or services provided. Users are
-            encouraged to do their own research and verify the information
-            before acting on it. Any reliance you place on such information is
-            strictly at your own risk.
+            informational purposes only. While we strive to keep the information
+            up-to-date and correct, we make no representations or warranties of
+            any kind, express or implied, about the completeness, accuracy,
+            reliability, suitability, or availability with respect to the
+            information, products, or services provided. Users are encouraged to
+            do their own research and verify the information before acting on
+            it. Any reliance you place on such information is strictly at your
+            own risk.
           </p>
         </div>
       </footer>

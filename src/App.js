@@ -332,11 +332,19 @@ function App() {
       <footer className="App-footer">
         <p>Site made by Poseidon</p>
         <a
+              href="https://t.me/Poseidon_PLS"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Telegram
+            </a>
+            <br></br>
+        <a
           href="https://twitter.com/TheDonSGPulseX"
           target="_blank"
           rel="noopener noreferrer"
         >
-          @TheDonSGPulseX
+          Twitter
         </a>
         <div className="disclaimer">
           <p>

@@ -212,9 +212,8 @@ function App() {
             </button>
             <button
               onClick={() => window.open("https://pulseramp.com/#/", "_blank")}
-              disabled
             >
-              To Bridge (disabled)
+              To Bridge
             </button>
             <button
               onClick={() =>
@@ -277,14 +276,13 @@ function App() {
           <button
             onClick={() =>
               addCustom(
-                "0xAa1F1f73b833FD63b591f56fa83B3f8A7C343224",
+                "0x826e4e896cc2f5b371cd7bb0bd929db3e3db67c0",
                 "tDai",
                 18
               )
             }
-            disabled
           >
-            Add tDai (disabled){" "}
+            Add tDai{" "}
           </button>
         </div>
         <div className="button-row">

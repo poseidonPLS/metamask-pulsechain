@@ -317,7 +317,7 @@ function App() {
                 }
               >
                 Add {token.symbol}
-                {token.name.includes("on PulseChain")
+                {token.name.includes("from Sepolia")
                   ? "-bridged"
                   : ""} Token {/* Update this line */}
               </button>

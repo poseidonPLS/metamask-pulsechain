@@ -1,7 +1,7 @@
 import { useState } from "react";
 import detectEthereumProvider from "@metamask/detect-provider";
 import "./App.css";
-import logo from "./logo.png"; // Import the logo image
+import logo from "./logo.png"; // Import PulseChain logo image
 import logoPulseX from "./logoPulseX.png"; // Import the PulseX logo image
 import logoHEX from "./logoHEX.png"; // Import the HEX logo image
 
@@ -9,7 +9,7 @@ function App() {
   const [account, setAccount] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); // Add this line
+  const [errorMessage, setErrorMessage] = useState(""); 
 
   const connectMetaMask = async () => {
     const provider = await detectEthereumProvider();
@@ -37,7 +37,7 @@ function App() {
               symbol: "tPLS",
               decimals: 18,
             },
-            rpcUrls: ["https://rpc.v4.testnet.pulsechain.com"], // New RPC URL
+            rpcUrls: ["https://rpc.v4.testnet.pulsechain.com"], // RPC URL
             blockExplorerUrls: ["https://scan.v4.testnet.pulsechain.com"], // Block Explorer URL
           };
 
@@ -293,7 +293,7 @@ function App() {
             type="text"
             placeholder="Search for other tokens"
             onChange={(e) => setSearchInput(e.target.value)}
-            onKeyPress={handleKeyPress} // Add the onKeyPress event handler here
+            onKeyPress={handleKeyPress} 
             style={{
               fontSize: "1rem",
               padding: "0.5rem",

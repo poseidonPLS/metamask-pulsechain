@@ -18,9 +18,9 @@
   height: auto;
   margin-bottom: 0.2rem;
   margin-top: 1rem;
-  display: block; /* Add this line */
-  margin-left: auto; /* Add this line */
-  margin-right: auto; /* Add this line */
+  display: block; 
+  margin-left: auto; 
+  margin-right: auto; 
 }
 
 .logo-container {
@@ -63,8 +63,8 @@
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 0.25rem;
   margin-bottom: 0.7rem;
-  max-width: 90%; /* Add this line */
-  overflow: auto; /* Add this line */
+  max-width: 90%; 
+  overflow: auto; 
 }
 
 .disclaimer {
@@ -103,8 +103,8 @@ button {
   flex-direction: column;
   justify-content: center;
   color: rgb(227, 227, 227);
-  padding-left: 4rem; /* Add this line */
-  padding-right: 4rem; /* Add this line */
+  padding-left: 4rem; 
+  padding-right: 4rem; 
 }
 
 button:hover {

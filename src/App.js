@@ -151,6 +151,9 @@ function App() {
         <h1>PulseChain Testnet v4</h1>
         <div className="button-row">
           <button onClick={connectMetaMask}>Set up PulseChain V4</button>
+          <p style={{ fontSize: "1rem" }}>
+            Latest: V4 bridge is LIVE!
+          </p>
           <p style={{ marginTop: "0.5rem", marginBottom: "0.2rem", fontSize: "0.9rem" }}>
             {" "}
             If you're on a mobile device, please use the mobile app's browser to
@@ -307,7 +310,7 @@ function App() {
             <div key={token.id} className="token">
               <h4>
                 {token.name} ({token.symbol}
-                {token.name.includes("on PulseChain") ? "-bridged" : ""}){" "}
+                {token.name.includes("from Sepolia") ? "-bridged" : ""}){" "}
                 {/* Update this line */}
               </h4>
               <p className="contract-address">{token.id}</p>

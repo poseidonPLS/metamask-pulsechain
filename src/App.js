@@ -287,6 +287,17 @@ function App() {
           >
             Add tDai{" "}
           </button>
+                    <button
+            onClick={() =>
+              addCustom(
+                "0x3677bd78ccf4d299328ecfba61790cf8dbfcf686",
+                "wETH",
+                18
+              )
+            }
+          >
+            Add wETH{" "}
+          </button>
         </div>
         <div className="button-row">
           <input

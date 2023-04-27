@@ -25,13 +25,13 @@ function App() {
         const currentChainId = await provider.request({
           method: "eth_chainId",
         });
-        const pulseChainv4.testnetChainId = "0x3af"; // Chain ID: 369
+        const pulseChaintestnetChainId = "0x3af"; // Chain ID: 943
 
-        if (currentChainId !== pulseChainv4.testnetChainId) {
+        if (currentChainId !== pulseChaintestnetChainId) {
           // Add PulseChain configuration
           const network = {
-            chainId: pulseChainv4.testnetChainId,
-            chainName: "PulseChain Testnet V4",
+            chainId: pulseChaintestnetChainId,
+            chainName: "PulseChain",
             nativeCurrency: {
               name: "tPLS",
               symbol: "tPLS",
@@ -97,9 +97,9 @@ function App() {
 
     if (provider) {
       const currentChainId = await provider.request({ method: "eth_chainId" });
-      const pulseChainv4.testnetChainId = "0x3af"; // Chain ID: 369
+      const pulseChaintestnetChainId = "0x171"; // Chain ID: 369
 
-      if (currentChainId === pulseChainv4.testnetChainId) {
+      if (currentChainId === pulseChaintestnetChainId) {
         try {
           // Request to add the custom to MetaMask
           await provider.request({
@@ -151,9 +151,9 @@ function App() {
         <h1>PulseChain</h1>
         <div className="button-row">
           <button onClick={connectMetaMask}>Set up PulseChain</button>
-          {/* <p style={{ fontSize: "1rem" }}>
+          <p style={{ fontSize: "1rem" }}>
             Latest: V4 bridge is LIVE!
-          </p> */}
+          </p> 
           <p style={{ marginTop: "0.5rem", marginBottom: "0.2rem", fontSize: "0.9rem" }}>
             {" "}
             If you're on a mobile device, please use the mobile app's browser to
@@ -295,8 +295,8 @@ function App() {
                 18
               )
             }
-          disabled>
-            Add wETH(disabled){" "}
+          >
+            Add wETH{" "}
           </button>
         </div>
         <div className="button-row">

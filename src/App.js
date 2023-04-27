@@ -368,7 +368,7 @@ function App() {
             information, products, or services provided. Users are encouraged to
             do their own research and verify the information before acting on
             it. Any reliance you place on such information is strictly at your
-            own risks. T
+            own risks. 
           </p>
         </div>
       </footer>

@@ -25,7 +25,7 @@ function App() {
         const currentChainId = await provider.request({
           method: "eth_chainId",
         });
-        const pulseChaintestnetChainId = "0x3af"; // Chain ID: 369
+        const pulseChaintestnetChainId = "0x3af"; // Chain ID: 943
 
         if (currentChainId !== pulseChaintestnetChainId) {
           // Add PulseChain configuration
@@ -33,8 +33,8 @@ function App() {
             chainId: pulseChaintestnetChainId,
             chainName: "PulseChain",
             nativeCurrency: {
-              name: "PLS",
-              symbol: "PLS",
+              name: "tPLS",
+              symbol: "tPLS",
               decimals: 18,
             },
             rpcUrls: ["https://rpc.v4.testnet.pulsechain.com"], // RPC URL

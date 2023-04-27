@@ -151,9 +151,9 @@ function App() {
         <h1>PulseChain</h1>
         <div className="button-row">
           <button onClick={connectMetaMask}>Set up PulseChain</button>
-          {/* <p style={{ fontSize: "1rem" }}>
+          <p style={{ fontSize: "1rem" }}>
             Latest: V4 bridge is LIVE!
-          </p> */}
+          </p> 
           <p style={{ marginTop: "0.5rem", marginBottom: "0.2rem", fontSize: "0.9rem" }}>
             {" "}
             If you're on a mobile device, please use the mobile app's browser to
@@ -295,8 +295,8 @@ function App() {
                 18
               )
             }
-          disabled>
-            Add wETH(disabled){" "}
+          >
+            Add wETH{" "}
           </button>
         </div>
         <div className="button-row">

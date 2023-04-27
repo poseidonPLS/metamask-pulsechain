@@ -25,20 +25,20 @@ function App() {
         const currentChainId = await provider.request({
           method: "eth_chainId",
         });
-        const pulseChainMainnetChainId = "0x171"; // Chain ID: 369
+        const pulseChaintestnetChainId = "0x3af"; // Chain ID: 369
 
-        if (currentChainId !== pulseChainMainnetChainId) {
+        if (currentChainId !== pulseChaintestnetChainId) {
           // Add PulseChain configuration
           const network = {
-            chainId: pulseChainMainnetChainId,
+            chainId: pulseChaintestnetChainId,
             chainName: "PulseChain",
             nativeCurrency: {
               name: "PLS",
               symbol: "PLS",
               decimals: 18,
             },
-            rpcUrls: ["https://rpc.mainnet.pulsechain.com"], // RPC URL
-            blockExplorerUrls: ["https://scan.mainnet.pulsechain.com"], // Block Explorer URL
+            rpcUrls: ["https://rpc.v4.testnet.pulsechain.com"], // RPC URL
+            blockExplorerUrls: ["https://scan.v4.testnet.pulsechain.com"], // Block Explorer URL
           };
 
           // Request to add the PulseChain to MetaMask
@@ -70,7 +70,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "https://graph.mainnet.pulsechain.com/subgraphs/name/pulsechain/pulsex",
+        "https://graph.v4.testnet.pulsechain.com/subgraphs/name/pulsechain/pulsex",
         {
           method: "POST",
           headers: {
@@ -97,9 +97,9 @@ function App() {
 
     if (provider) {
       const currentChainId = await provider.request({ method: "eth_chainId" });
-      const pulseChainMainnetChainId = "0x171"; // Chain ID: 369
+      const pulseChaintestnetChainId = "0x171"; // Chain ID: 369
 
-      if (currentChainId === pulseChainMainnetChainId) {
+      if (currentChainId === pulseChaintestnetChainId) {
         try {
           // Request to add the custom to MetaMask
           await provider.request({
@@ -171,14 +171,14 @@ function App() {
           <div className="navigation-buttons">
             <button
               onClick={() =>
-                window.open("https://app.mainnet.pulsex.com/swap", "_blank")
+                window.open("https://app.v4.testnet.pulsex.com/swap", "_blank")
               }
             >
               To PulseX
             </button>
             <button
               onClick={() =>
-                window.open("https://scan.mainnet.pulsechain.com/", "_blank")
+                window.open("https://scan.v4.testnet.pulsechain.com/", "_blank")
               }
             >
               To Block Explorer
@@ -186,7 +186,7 @@ function App() {
             <button
               onClick={() =>
                 window.open(
-                  "https://beacon.mainnet.pulsechain.com/",
+                  "https://beacon.v4.testnet.pulsechain.com/",
                   "_blank"
                 )
               }
@@ -196,7 +196,7 @@ function App() {
             {/* <button
               onClick={() =>
                 window.open(
-                  "https://faucet.mainnet.pulsechain.com/",
+                  "https://faucet.v4.testnet.pulsechain.com/",
                   "_blank"
                 )
               }
@@ -206,7 +206,7 @@ function App() {
             <button
               onClick={() =>
                 window.open(
-                  "https://launchpad.mainnet.pulsechain.com/en/",
+                  "https://launchpad.v4.testnet.pulsechain.com/en/",
                   "_blank"
                 )
               }

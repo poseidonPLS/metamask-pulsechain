@@ -97,7 +97,7 @@ function App() {
 
     if (provider) {
       const currentChainId = await provider.request({ method: "eth_chainId" });
-      const pulseChaintestnetChainId = "0x171"; // Chain ID: 369
+      const pulseChaintestnetChainId = "0x3af"; // Chain ID: 943
 
       if (currentChainId === pulseChaintestnetChainId) {
         try {
@@ -150,7 +150,7 @@ function App() {
         </div>
         <h1>PulseChain</h1>
         <div className="button-row">
-          <button onClick={connectMetaMask}>Set up PulseChain</button>
+          <button onClick={connectMetaMask}>Set up PulseChain V4</button>
           <p style={{ fontSize: "1rem" }}>
             Latest: V4 bridge is LIVE!
           </p> 

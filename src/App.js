@@ -148,7 +148,7 @@ function App() {
             <img src={logoPulseX} alt="PulseX Logo" className="logo" />
           </a>
         </div>
-        <h1>PulseChain</h1>
+        <h1>PulseChain V4</h1>
         <div className="button-row">
           <button onClick={connectMetaMask}>Set up PulseChain V4</button>
           <p style={{ fontSize: "1rem" }}>
@@ -218,7 +218,7 @@ function App() {
             >
               To Bridge
             </button>
-            {/* <button
+            <button
               onClick={() =>
                 window.open(
                   "https://pulsechain-sacrifice-checker.vercel.app/",
@@ -227,7 +227,7 @@ function App() {
               }
             >
               To Sacrifice Checker
-            </button> */}
+            </button>
           </div>
         </div>
         <div className="add-token-section">
@@ -276,7 +276,7 @@ function App() {
           >
             Add DAI{" "}
           </button>
-          {/* <button
+          <button
             onClick={() =>
               addCustom(
                 "0x826e4e896cc2f5b371cd7bb0bd929db3e3db67c0",
@@ -286,7 +286,7 @@ function App() {
             }
           >
             Add tDai{" "}
-          </button> */}
+          </button>
                     <button
             onClick={() =>
               addCustom(

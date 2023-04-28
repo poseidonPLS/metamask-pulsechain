@@ -193,7 +193,7 @@ function App() {
             >
               To Beacon Explorer
             </button>
-            {/* <button
+           <button
               onClick={() =>
                 window.open(
                   "https://faucet.v4.testnet.pulsechain.com/",
@@ -202,7 +202,7 @@ function App() {
               }
             >
               To Faucet
-            </button> */}
+            </button>
             <button
               onClick={() =>
                 window.open(

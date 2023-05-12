@@ -25,20 +25,20 @@ function App() {
         const currentChainId = await provider.request({
           method: "eth_chainId",
         });
-        const pulseChaintestnetChainId = "0x3af"; // Chain ID: 943
+        const pulseChainChainId = "0x171"; // Chain ID: 369
 
-        if (currentChainId !== pulseChaintestnetChainId) {
+        if (currentChainId !== pulseChainChainId) {
           // Add PulseChain configuration
           const network = {
-            chainId: pulseChaintestnetChainId,
+            chainId: pulseChainChainId,
             chainName: "PulseChain",
             nativeCurrency: {
-              name: "tPLS",
-              symbol: "tPLS",
+              name: "PLS",
+              symbol: "PLS",
               decimals: 18,
             },
-            rpcUrls: ["https://rpc.v4.testnet.pulsechain.com"], // RPC URL
-            blockExplorerUrls: ["https://scan.v4.testnet.pulsechain.com"], // Block Explorer URL
+            rpcUrls: ["https://rpc.pulsechain.com"], // RPC URL
+            blockExplorerUrls: ["https://scan.pulsechain.com"], // Block Explorer URL
           };
 
           // Request to add the PulseChain to MetaMask
@@ -70,7 +70,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "https://graph.v4.testnet.pulsechain.com/subgraphs/name/pulsechain/pulsex",
+        "https://graph.pulsechain.com/subgraphs/name/pulsechain/pulsex",
         {
           method: "POST",
           headers: {
@@ -97,9 +97,9 @@ function App() {
 
     if (provider) {
       const currentChainId = await provider.request({ method: "eth_chainId" });
-      const pulseChaintestnetChainId = "0x171"; // Chain ID: 369
+      const pulseChainChainId = "0x171"; // Chain ID: 369
 
-      if (currentChainId === pulseChaintestnetChainId) {
+      if (currentChainId === pulseChainChainId) {
         try {
           // Request to add the custom to MetaMask
           await provider.request({
@@ -152,7 +152,7 @@ function App() {
         <div className="button-row">
           <button onClick={connectMetaMask}>Set up PulseChain</button>
           <p style={{ fontSize: "1rem" }}>
-            Latest: V4 bridge is LIVE!
+            Latest: Mainnet Live!
           </p> 
           <p style={{ marginTop: "0.5rem", marginBottom: "0.2rem", fontSize: "0.9rem" }}>
             {" "}
@@ -171,14 +171,14 @@ function App() {
           <div className="navigation-buttons">
             <button
               onClick={() =>
-                window.open("https://app.v4.testnet.pulsex.com/swap", "_blank")
+                window.open("https://app.pulsex.com/swap", "_blank")
               }
             >
               To PulseX
             </button>
             <button
               onClick={() =>
-                window.open("https://scan.v4.testnet.pulsechain.com/", "_blank")
+                window.open("https://scan.pulsechain.com/", "_blank")
               }
             >
               To Block Explorer
@@ -186,27 +186,17 @@ function App() {
             <button
               onClick={() =>
                 window.open(
-                  "https://beacon.v4.testnet.pulsechain.com/",
+                  "https://beacon.pulsechain.com/",
                   "_blank"
                 )
               }
             >
               To Beacon Explorer
             </button>
-            {/* <button
-              onClick={() =>
-                window.open(
-                  "https://faucet.v4.testnet.pulsechain.com/",
-                  "_blank"
-                )
-              }
-            >
-              To Faucet
-            </button> */}
             <button
               onClick={() =>
                 window.open(
-                  "https://launchpad.v4.testnet.pulsechain.com/en/",
+                  "https://launchpad.pulsechain.com/en/",
                   "_blank"
                 )
               }
@@ -218,16 +208,6 @@ function App() {
             >
               To Bridge
             </button>
-            {/* <button
-              onClick={() =>
-                window.open(
-                  "https://pulsechain-sacrifice-checker.vercel.app/",
-                  "_blank"
-                )
-              }
-            >
-              To Sacrifice Checker
-            </button> */}
           </div>
         </div>
         <div className="add-token-section">
@@ -269,14 +249,14 @@ function App() {
           >
             Add USDC{" "}
           </button>
-          <button
+          {/* <button
             onClick={() =>
               addCustom("0x6b175474e89094c44da98b954eedeac495271d0f", "DAI", 18)
             }
           >
             Add DAI{" "}
-          </button>
-          {/* <button
+          </button> 
+          <button
             onClick={() =>
               addCustom(
                 "0x826e4e896cc2f5b371cd7bb0bd929db3e3db67c0",
@@ -287,17 +267,6 @@ function App() {
           >
             Add tDai{" "}
           </button> */}
-                    <button
-            onClick={() =>
-              addCustom(
-                "0x3677bd78ccf4d299328ecfba61790cf8dbfcf686",
-                "wETH",
-                18
-              )
-            }
-          >
-            Add wETH{" "}
-          </button>
         </div>
         <div className="button-row">
           <input

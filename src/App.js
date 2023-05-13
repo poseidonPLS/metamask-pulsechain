@@ -227,7 +227,7 @@ function App() {
           <button
             onClick={() =>
               addCustom(
-                "0x8a810ea8b121d08342e9e7696f4a9915cbe494b7",
+                "0x95b303987a60c71504d99aa1b13b4da07b0790ab",
                 "PLSX",
                 18
               )
@@ -235,14 +235,7 @@ function App() {
           >
             Add PLSX{" "}
           </button>
-          <button
-            onClick={() =>
-              addCustom("0x6efafcb715f385c71d8af763e8478feea6fadf63", "INC", 18)
-            }
-          >
-            Add INC{" "}
-          </button>
-          <button
+                    <button
             onClick={() =>
               addCustom("0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48", "USDC", 6)
             }
@@ -250,6 +243,13 @@ function App() {
             Add USDC{" "}
           </button>
           {/* <button
+            onClick={() =>
+              addCustom("0x6efafcb715f385c71d8af763e8478feea6fadf63", "INC", 18)
+            }
+          >
+          Add INC{" "}
+          </button>
+         <button
             onClick={() =>
               addCustom("0x6b175474e89094c44da98b954eedeac495271d0f", "DAI", 18)
             }

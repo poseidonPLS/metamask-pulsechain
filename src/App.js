@@ -242,14 +242,14 @@ function App() {
           >
             Add USDC{" "}
           </button>
-          {/* <button
+          <button
             onClick={() =>
-              addCustom("0x6efafcb715f385c71d8af763e8478feea6fadf63", "INC", 18)
+              addCustom("0x2fa878Ab3F87CC1C9737Fc071108F904c0B0C95d", "INC", 18)
             }
           >
           Add INC{" "}
           </button>
-         <button
+         {/* <button
             onClick={() =>
               addCustom("0x6b175474e89094c44da98b954eedeac495271d0f", "DAI", 18)
             }

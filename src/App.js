@@ -204,7 +204,7 @@ function App() {
               To Validator
             </button>
             <button
-              onClick={() => window.open("https://pulseramp.com/#/", "_blank")}
+              onClick={() => window.open("https://bridge.pulsechain.com/", "_blank")}
             >
               To Bridge
             </button>
@@ -300,7 +300,7 @@ function App() {
                 }
               >
                 Add {token.symbol}
-                {token.name.includes("from Sepolia")
+                {token.name.includes("from Ethereum")
                   ? "-bridged"
                   : ""} Token {/* Update this line */}
               </button>

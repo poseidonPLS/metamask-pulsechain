@@ -249,14 +249,14 @@ function App() {
           >
           Add INC{" "}
           </button>
-         {/* <button
+        <button
             onClick={() =>
-              addCustom("0x6b175474e89094c44da98b954eedeac495271d0f", "DAI", 18)
+              addCustom("0x02dcdd04e3f455d838cd1249292c58f3b79e3c3c", "wETH", 18)
             }
           >
-            Add DAI{" "}
+            Add wETH{" "}
           </button> 
-          <button
+           {/*  <button
             onClick={() =>
               addCustom(
                 "0x826e4e896cc2f5b371cd7bb0bd929db3e3db67c0",
@@ -290,7 +290,7 @@ function App() {
             <div key={token.id} className="token">
               <h4>
                 {token.name} ({token.symbol}
-                {token.name.includes("from Sepolia") ? "-bridged" : ""}){" "}
+                {token.name.includes("from Ethereum") ? "-bridged" : ""}){" "}
                 {/* Update this line */}
               </h4>
               <p className="contract-address">{token.id}</p>

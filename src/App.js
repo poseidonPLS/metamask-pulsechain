@@ -246,13 +246,6 @@ const searchTokens = async (query) => {
           >
             Add PLSX{" "}
           </button>
-                    <button
-            onClick={() =>
-              addCustom("0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48", "USDC", 6)
-            }
-          >
-            Add USDC{" "}
-          </button>
           <button
             onClick={() =>
               addCustom("0x2fa878Ab3F87CC1C9737Fc071108F904c0B0C95d", "INC", 18)

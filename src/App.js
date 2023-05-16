@@ -300,9 +300,7 @@ const searchTokens = async (query) => {
           {searchResults.map((token) => (
             <div key={token.id} className="token">
               <h4>
-                {token.name} ({token.symbol}
-                {token.name.includes("from Ethereum") ? "-bridged" : ""}){" "}
-                {/* Update this line */}
+                {token.name} ({token.symbol})
               </h4>
               <p className="contract-address">{token.id}</p>
               <button
@@ -311,9 +309,6 @@ const searchTokens = async (query) => {
                 }
               >
                 Add {token.symbol}
-                {token.name.includes("from Ethereum")
-                  ? "-bridged"
-                  : ""} Token {/* Update this line */}
               </button>
             </div>
           ))}

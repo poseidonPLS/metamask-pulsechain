@@ -61,36 +61,47 @@ function App() {
     }
   };
 
-  const searchTokens = async (query) => {
-    if (query.trim() === "") {
-      setSearchResults([]);
-      setErrorMessage("Please enter a symbol to search.");
-      return;
-    }
+const searchTokens = async (query) => {
+  if (query.trim() === "") {
+    setSearchResults([]);
+    setErrorMessage("Please enter a symbol to search.");
+    return;
+  }
 
-    try {
-      const response = await fetch(
-        "https://graph.pulsechain.com/subgraphs/name/pulsechain/pulsex",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            query: `{tokens (where: {symbol_contains_nocase: "${query}"}) {id, name, symbol, decimals}}`,
-          }),
-        }
-      );
+  try {
+    const response = await fetch(
+      "https://graph.pulsechain.com/subgraphs/name/pulsechain/pulsex",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          query: `{tokens (where: {symbol_contains_nocase: "${query}"}) {id, name, symbol, decimals}}`,
+        }),
+      }
+    );
 
-      const data = await response.json();
-      setSearchResults(data.data.tokens);
-      setErrorMessage("");
-    } catch (error) {
-      console.error(error);
-      setSearchResults([]);
-      setErrorMessage("An error occurred while searching for tokens.");
-    }
-  };
+    const data = await response.json();
+
+    // Define a list of blocked addresses.
+    const blockedAddresses = ["0xfe980d2e7b329a3cbab245579e149eac0f40241c", "...", "..."]; // Add more blocked addresses as needed.
+
+    const filteredTokens = data.data.tokens.filter(token => {
+      // Exclude tokens with a longer than 10 char symbol, 20 char name, and blocked addresses.
+      return token.symbol.length <= 10 && 
+             token.name.length <= 20 && 
+             !blockedAddresses.includes(token.id);
+    });
+
+    setSearchResults(filteredTokens);
+    setErrorMessage("");
+  } catch (error) {
+    console.error(error);
+    setSearchResults([]);
+    setErrorMessage("An error occurred while searching for tokens.");
+  }
+};
 
   const addCustom = async (Address, Symbol, Decimals) => {
     const provider = await detectEthereumProvider();
@@ -249,14 +260,14 @@ function App() {
           >
           Add INC{" "}
           </button>
-        <button
+          {/* <button
             onClick={() =>
               addCustom("0x02dcdd04e3f455d838cd1249292c58f3b79e3c3c", "wETH", 18)
             }
           >
             Add wETH{" "}
           </button> 
-           {/*  <button
+          <button
             onClick={() =>
               addCustom(
                 "0x826e4e896cc2f5b371cd7bb0bd929db3e3db67c0",

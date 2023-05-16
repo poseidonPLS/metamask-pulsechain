@@ -9,7 +9,7 @@ function App() {
   const [account, setAccount] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const [errorMessage, setErrorMessage] = useState(""); 
+  const [errorMessage, setErrorMessage] = useState("");
 
   const connectMetaMask = async () => {
     const provider = await detectEthereumProvider();
@@ -61,47 +61,53 @@ function App() {
     }
   };
 
-const searchTokens = async (query) => {
-  if (query.trim() === "") {
-    setSearchResults([]);
-    setErrorMessage("Please enter a symbol to search.");
-    return;
-  }
+  const searchTokens = async (query) => {
+    if (query.trim() === "") {
+      setSearchResults([]);
+      setErrorMessage("Please enter a symbol to search.");
+      return;
+    }
 
-  try {
-    const response = await fetch(
-      "https://graph.pulsechain.com/subgraphs/name/pulsechain/pulsex",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          query: `{tokens (where: {symbol_contains_nocase: "${query}"}) {id, name, symbol, decimals}}`,
-        }),
-      }
-    );
+    try {
+      const response = await fetch(
+        "https://graph.pulsechain.com/subgraphs/name/pulsechain/pulsex",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            query: `{tokens (where: {symbol_contains_nocase: "${query}"}) {id, name, symbol, decimals}}`,
+          }),
+        }
+      );
 
-    const data = await response.json();
+      const data = await response.json();
 
-    // Define a list of blocked addresses.
-    const blockedAddresses = ["0xfe980d2e7b329a3cbab245579e149eac0f40241c", "...", "..."]; // Add more blocked addresses as needed.
+      // Define a list of blocked addresses.
+      const blockedAddresses = [
+        "0xfe980d2e7b329a3cbab245579e149eac0f40241c",
+        "...",
+        "...",
+      ]; // Add more blocked addresses as needed.
 
-    const filteredTokens = data.data.tokens.filter(token => {
-      // Exclude tokens with a longer than 10 char symbol, 20 char name, and blocked addresses.
-      return token.symbol.length <= 10 && 
-             token.name.length <= 20 && 
-             !blockedAddresses.includes(token.id);
-    });
+      const filteredTokens = data.data.tokens.filter((token) => {
+        // Exclude tokens with a longer than 10 char symbol, 20 char name, and blocked addresses.
+        return (
+          token.symbol.length <= 10 &&
+          token.name.length <= 20 &&
+          !blockedAddresses.includes(token.id)
+        );
+      });
 
-    setSearchResults(filteredTokens);
-    setErrorMessage("");
-  } catch (error) {
-    console.error(error);
-    setSearchResults([]);
-    setErrorMessage("An error occurred while searching for tokens.");
-  }
-};
+      setSearchResults(filteredTokens);
+      setErrorMessage("");
+    } catch (error) {
+      console.error(error);
+      setSearchResults([]);
+      setErrorMessage("An error occurred while searching for tokens.");
+    }
+  };
 
   const addCustom = async (Address, Symbol, Decimals) => {
     const provider = await detectEthereumProvider();
@@ -128,9 +134,7 @@ const searchTokens = async (query) => {
           console.error(error);
         }
       } else {
-        console.error(
-          "Please switch to the PulseChain before adding."
-        );
+        console.error("Please switch to the PulseChain before adding.");
       }
     } else {
       console.log("Please install MetaMask!");
@@ -162,19 +166,23 @@ const searchTokens = async (query) => {
         <h1>PulseChain</h1>
         <div className="button-row">
           <button onClick={connectMetaMask}>Set up PulseChain</button>
-          <p style={{ fontSize: "1rem" }}>
-            Latest: Mainnet Live!
-          </p> 
-          <p style={{ marginTop: "0.5rem", marginBottom: "0.2rem", fontSize: "0.9rem" }}>
+          <p style={{ fontSize: "1rem" }}>Latest: Mainnet Live!</p>
+          <p
+            style={{
+              marginTop: "0.5rem",
+              marginBottom: "0.2rem",
+              fontSize: "0.9rem",
+            }}
+          >
             {" "}
             If you're on a mobile device, please use the mobile app's browser to
             access this site.
             <br></br>
-             Tested working with mobile/browser Metamask,
-            mobile/browser Trust wallet and mobile Coinbase Wallet.
+            Tested working with mobile/browser Metamask, mobile/browser Trust
+            wallet and mobile Coinbase Wallet.
           </p>
           <p style={{ fontSize: "0.8rem" }}>
-            * Your mobile app need to support custom RPC. 
+            * Your mobile app need to support custom RPC.
           </p>
         </div>
         <div className="navigation-section">
@@ -196,26 +204,22 @@ const searchTokens = async (query) => {
             </button>
             <button
               onClick={() =>
-                window.open(
-                  "https://beacon.pulsechain.com/",
-                  "_blank"
-                )
+                window.open("https://beacon.pulsechain.com/", "_blank")
               }
             >
               To Beacon Explorer
             </button>
             <button
               onClick={() =>
-                window.open(
-                  "https://launchpad.pulsechain.com/en/",
-                  "_blank"
-                )
+                window.open("https://launchpad.pulsechain.com/en/", "_blank")
               }
             >
               To Validator
             </button>
             <button
-              onClick={() => window.open("https://bridge.pulsechain.com/", "_blank")}
+              onClick={() =>
+                window.open("https://bridge.pulsechain.com/", "_blank")
+              }
             >
               To Bridge
             </button>
@@ -224,9 +228,15 @@ const searchTokens = async (query) => {
         <div className="add-token-section">
           <h3 className="add-token-title">Add Tokens</h3>
         </div>
-        <p style={{ marginTop: "0.5rem", marginBottom: "0.2rem", fontSize: "0.9rem" }}>
-              If the buttons doesn't work, check that you are on PulseChain.
-          </p>
+        <p
+          style={{
+            marginTop: "0.5rem",
+            marginBottom: "0.2rem",
+            fontSize: "0.9rem",
+          }}
+        >
+          If the buttons doesn't work, check that you are on PulseChain.
+        </p>
         <div className="grid-container">
           <button
             onClick={() =>
@@ -251,7 +261,7 @@ const searchTokens = async (query) => {
               addCustom("0x2fa878Ab3F87CC1C9737Fc071108F904c0B0C95d", "INC", 18)
             }
           >
-          Add INC{" "}
+            Add INC{" "}
           </button>
           {/* <button
             onClick={() =>
@@ -277,7 +287,7 @@ const searchTokens = async (query) => {
             type="text"
             placeholder="Search for other tokens"
             onChange={(e) => setSearchInput(e.target.value)}
-            onKeyPress={handleKeyPress} 
+            onKeyPress={handleKeyPress}
             style={{
               fontSize: "1rem",
               padding: "0.5rem",
@@ -311,14 +321,10 @@ const searchTokens = async (query) => {
 
       <footer className="App-footer">
         <p>Site made by Poseidon</p>
-        <a
-              href="https://t.me/Poseidon_PLS"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Telegram
-            </a>
-            <br></br>
+        <a href="https://t.me/Poseidon_PLS" target="_blank" rel="noreferrer">
+          Telegram
+        </a>
+        <br></br>
         <a
           href="https://twitter.com/TheDonSGPulseX"
           target="_blank"
@@ -329,14 +335,15 @@ const searchTokens = async (query) => {
         <div className="disclaimer">
           <p>
             Disclaimer: The information provided by this application is for
-            informational purposes only. While we strive to keep the information
-            up-to-date and correct, we make no representations or warranties of
-            any kind, express or implied, about the completeness, accuracy,
-            reliability, suitability, or availability with respect to the
-            information, products, or services provided. Users are encouraged to
-            do their own research and verify the information before acting on
-            it. Any reliance you place on such information is strictly at your
-            own risks.
+            informational purposes only. Do be careful when adding contract
+            addresses as they might be fraudulent. While we strive to keep the
+            information up-to-date and correct, we make no representations or
+            warranties of any kind, express or implied, about the completeness,
+            accuracy, reliability, suitability, or availability with respect to
+            the information, products, or services provided. Users are
+            encouraged to do their own research and verify the information
+            before acting on it. Any reliance you place on such information is
+            strictly at your own risks.
           </p>
         </div>
       </footer>

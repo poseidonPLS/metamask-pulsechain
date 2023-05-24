@@ -87,8 +87,8 @@ function App() {
       // Define a list of blocked addresses.
       const blockedAddresses = [
         "0xfe980d2e7b329a3cbab245579e149eac0f40241c",
-        "...",
-        "...",
+        "0x4c1483eb0f821d79c26ea0d43a712c7dd978b71e",
+        "0x5076592237349822cd158997c6025d0f845ee4c2",
       ]; // Add more blocked addresses as needed.
 
       const filteredTokens = data.data.tokens.filter((token) => {
@@ -258,29 +258,36 @@ function App() {
           </button>
           <button
             onClick={() =>
+              addCustom("0x2b591e99afe9f32eaa6214f7b7629768c40eeb39", "HEX", 8)
+            }
+          >
+            Add HEX{" "}
+          </button>
+          <button
+            onClick={() =>
               addCustom("0x2fa878Ab3F87CC1C9737Fc071108F904c0B0C95d", "INC", 18)
             }
           >
             Add INC{" "}
           </button>
-          {/* <button
+          <button
             onClick={() =>
-              addCustom("0x02dcdd04e3f455d838cd1249292c58f3b79e3c3c", "wETH", 18)
+              addCustom("0x15D38573d2feeb82e7ad5187aB8c1D52810B1f07", "USDC", 6)
             }
           >
-            Add wETH{" "}
+            Add USDC Bridged{" "}
           </button> 
           <button
             onClick={() =>
               addCustom(
-                "0x826e4e896cc2f5b371cd7bb0bd929db3e3db67c0",
-                "tDai",
+                "0xefD766cCb38EaF1dfd701853BFCe31359239F305",
+                "Dai",
                 18
               )
             }
           >
-            Add tDai{" "}
-          </button> */}
+            Add Dai Bridged{" "}
+          </button>
         </div>
         <div className="button-row">
           <input

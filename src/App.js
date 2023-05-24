@@ -258,17 +258,17 @@ function App() {
           </button>
           <button
             onClick={() =>
-              addCustom("0x2b591e99afe9f32eaa6214f7b7629768c40eeb39", "HEX", 8)
-            }
-          >
-            Add HEX{" "}
-          </button>
-          <button
-            onClick={() =>
               addCustom("0x2fa878Ab3F87CC1C9737Fc071108F904c0B0C95d", "INC", 18)
             }
           >
             Add INC{" "}
+          </button>
+          <button
+            onClick={() =>
+              addCustom("0x57fde0a71132198bbec939b98976993d8d89d225", "HEX", 8)
+            }
+          >
+            Add HEX Bridged{" "}
           </button>
           <button
             onClick={() =>
@@ -287,6 +287,17 @@ function App() {
             }
           >
             Add Dai Bridged{" "}
+          </button>
+          <button
+            onClick={() =>
+              addCustom(
+                "0x0cb6f5a34ad42ec934882a05265a7d5f59b51a2f",
+                "USDT",
+                18
+              )
+            }
+          >
+            Add USDT Bridged{" "}
           </button>
         </div>
         <div className="button-row">

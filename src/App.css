@@ -11,13 +11,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .logo {
   width: 120px;
   height: auto;
-  margin-bottom: 0.2rem;
-  margin-top: 1rem;
   display: block; 
   margin-left: auto; 
   margin-right: auto; 
@@ -28,30 +27,29 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1rem;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .navigation-buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(71, 71, 71, 0.1);
+  border-radius: 1rem;
 }
 
-.search-results {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.2rem;
-  margin-bottom: 0.2rem;
+.add-token-section {
+  margin-bottom: 20px;
 }
 
 .add-token-title{
-  margin-bottom: 0.3rem;
+  margin-bottom: 10px;
 }
 
 .token {
@@ -62,7 +60,6 @@
   padding: 1rem;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 0.25rem;
-  margin-bottom: 0.7rem;
   max-width: 90%; 
   overflow: auto; 
 }
@@ -80,17 +77,12 @@
   margin-bottom: 0.7rem;
 }
 
-.contract-address {
-  font-size: 0.8rem;
-  margin-bottom: 0.5rem;
-}
-
 button {
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   border-radius: 0.25rem;
   color: white;
-  background-color: #6200ee;
+  background-color: rgb(4, 118, 150);
   border: none;
   cursor: pointer;
   margin: 0.25rem;
@@ -108,7 +100,7 @@ button {
 }
 
 button:hover {
-  background-color: #3700b3;
+  background-color: rgb(0, 166, 212);
 }
 
 .App-footer {
@@ -118,9 +110,10 @@ button:hover {
 }
 
 a {
-  color: rgb(227, 227, 227);
+  color: rgb(50, 50, 227);
   text-decoration: none;
   transition: color 0.3s;
+  text-decoration: underline;
 }
 
 h4 {

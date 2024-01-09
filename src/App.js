@@ -13,7 +13,7 @@ function App() {
           <img src={logo} alt="PulseChain Logo" className="logo" />
           <img src={logoPulseX} alt="PulseX Logo" className="logo" />
         </div>
-        <h1>Site retired</h1>
+        <h1>Site retired, BEWARE OF SCAMS</h1>
       </header>
     </div>
   );
